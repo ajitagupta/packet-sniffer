@@ -4,9 +4,9 @@ import binascii
 
 s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket. htons(0x0800)) # creating socket
 while True:
-    packet = s.recvfrom(2048)
+    packet = s.recvfrom(46)
 
-# a bit more criminology
-ethernet_header = packet[0][0:14] # Get Ethernet Header
-eth_header = struct.unpack("!6s6s2s", ethernet_header)
-print ("Destination MAC:" + binascii.hexlify(eth_header[0]) + " Source MAC:" + binascii.hexlify(eth_header[1]))) # finding the crook
+# criminology
+tcp_header = packet[0][0:31] # Get first line of the packet
+unpacked_tcp_header = struct.unpack("!6s6s", tcp_header)
+print ("Destination MAC:" + binascii.hexlify(unpacked_tcp_header[0]) + " Source MAC:" + binascii.hexlify(unpacked_tcp_header[1]))) # finding the crook MAC address
