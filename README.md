@@ -16,7 +16,7 @@ The packet sniffer that I will create and walk you through monitors network traf
 A sniffer can continuously monitor all the traffic to a computer through the network interface card by decoding the information encapsulated in the data packets.
 
 ## How does a packet look like?
-The internet consists of multiple layers which are best described using the famous OSI Reference Model. Each layer of the model is its own protocol used for communication amongst nodes, or networked devices. This is how a data packet is structured at Layer 4: Transmission Control Protocol (TCP).
+The internet consists of multiple layers which are best described using the famous [OSI Reference Model](https://www.educative.io/blog/osi-model-layers). Each layer of the model is its own protocol used for communication amongst nodes, or networked devices. This is how a data packet is structured at Layer 4: Transmission Control Protocol (TCP).
 <br>
 ![TCP packet](https://i.ibb.co/CM4SVX4/tcppacket.gif "TCP packet")
 <br>
@@ -30,8 +30,19 @@ import binascii
 ```
 ### 2. Now we tap
 ```
-s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket. htons(0x0800)) #Creating socket
-while True:
-    packet = s.recvfrom(2048)
+s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.htons(0x0800)) #Creating socket
+packet = s.recvfrom(46)
 ```
-We first open a socket or *tap* and grab up to 2048 bits in length. In the socket function, we will need to pass three variables: the first specifying a windows packet interface (AF_INET); the second specifying that we are opening a raw socket, and the third specifying the protocol we are interested in, which is the IPv4 protocol in this case. We will then rely on the recvfrom function to receive packets of size 2048 in an infinite loop. The code is as follows:
+We first open a socket or *tap* and grab 46 bits in length. In the socket function, we will need to pass three variables: the first specifying a windows packet interface (AF_INET); the second specifying that we are opening a raw socket, and the third specifying the protocol we are interested in, which is the IPv4 protocol in this case. We will then rely on the recvfrom function to receive a packet (of size 46).
+### 3. Find the crook
+```
+tcp_header = packet[0][0:31] # Get first line of the packet
+unpacked_tcp_header = struct.unpack("!6s6s", tcp_header)
+print ("Destination MAC:" + binascii.hexlify(unpacked_tcp_header[0]) + " Source MAC:" + binascii.hexlify(unpacked_tcp_header[1])))
+```
+We still need to print the formatted packet data, and we will make that happen using the struct and binascii imports above. Given that in this tutorial, we are only interested in the source and destination IP addresses, we only care about the first line in the packet (as demonstrated in the diagram). We grab the first line (row size 0, column size 0 to 31) of that header and printing them as follows: Return a pair with two hex values, converted by hexify in the binascii module. The first being the destination, the second the source. MAC stands for Media Access Control address, sometimes referred to as a hardware or physical address, and is a unique, 12-character alphanumeric attribute that is used to identify individual electronic devices on a network.
+
+## Criminology report
+Do the investigation on the guy at destination and inform the person at source if he is unidentifiable.
+
+
