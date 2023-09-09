@@ -20,4 +20,11 @@ The internet consists of multiple layers which are best described using the famo
 <br>
 ![TCP packet](https://i.ibb.co/CM4SVX4/tcppacket.gif "TCP packet")
 <br>
-lbljkljlkj
+
+## The Code
+### First we load our libraries
+```
+import socket
+import struct
+import binascii
+```
