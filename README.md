@@ -17,6 +17,7 @@ A sniffer can continuously monitor all the traffic to a computer through the net
 
 ## How does a packet look like?
 The internet consists of multiple layers which are best described using the famous OSI Reference Model. Each layer of the model is its own protocol used for communication amongst nodes, or networked devices. This is how a data packet is structured at Layer 4: Transmission Control Protocol (TCP).
+<br>
 ![TCP packet](https://i.ibb.co/CM4SVX4/tcppacket.gif "TCP packet")
-
-
+<br>
+lbljkljlkj
