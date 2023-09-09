@@ -22,9 +22,16 @@ The internet consists of multiple layers which are best described using the famo
 <br>
 
 ## The Code
-### First we load our libraries
+### 1. First we load our libraries
 ```
 import socket
 import struct
 import binascii
 ```
+### 2. Now we tap
+```
+s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket. htons(0x0800)) #Creating socket
+while True:
+    packet = s.recvfrom(2048)
+```
+We first open a socket or *tap* and grab up to 2048 bits in length. In the socket function, we will need to pass three variables: the first specifying a windows packet interface (AF_INET); the second specifying that we are opening a raw socket, and the third specifying the protocol we are interested in, which is the IPv4 protocol in this case. We will then rely on the recvfrom function to receive packets of size 2048 in an infinite loop. The code is as follows:
