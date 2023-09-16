@@ -32,7 +32,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.htons(0x0800)) #Creati
 packet = s.recvfrom(46)
 ```
 We first open a socket or *tap* and grab 46 bits in length. In the socket function, we will need to pass three variables: the first specifying a windows packet interface (AF_INET); the second specifying that we are opening a raw socket, and the third specifying the protocol we are interested in, which is the IPv4 protocol in this case. We will then rely on the recvfrom function to receive a packet (of size 46).
-### 3. We print the hacker
+### 3. We finally output the hacker
 ```
 tcp_header = packet[0][0:31] # Get first line of the packet
 unpacked_tcp_header = struct.unpack("!6s6s", tcp_header)
