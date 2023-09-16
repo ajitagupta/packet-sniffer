@@ -5,7 +5,7 @@ Building a packet sniffer is an opportunity to practice my networking and progra
 So, let's get started!
 
 ## What is packet sniffing?
-The packet sniffer that I will create and walk you through monitors network traffic. This is done to detect suspicious activity like hacking, capture and analyze data packets that flow between devices within the same network, and monitor packets that are exchanged between devices and the internet. Examples of what is contained in these packets are
+The packet sniffer that I will create and walk you through monitors network traffic. Examples of what is contained in these data packets are
 - Emails
 - Passwords
 - Browser surfing
@@ -34,7 +34,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.htons(0x0800)) #Creati
 packet = s.recvfrom(46)
 ```
 We first open a socket or *tap* and grab 46 bits in length. In the socket function, we will need to pass three variables: the first specifying a windows packet interface (AF_INET); the second specifying that we are opening a raw socket, and the third specifying the protocol we are interested in, which is the IPv4 protocol in this case. We will then rely on the recvfrom function to receive a packet (of size 46).
-### 3. Who is the crook?
+### 3. We print the hacker
 ```
 tcp_header = packet[0][0:31] # Get first line of the packet
 unpacked_tcp_header = struct.unpack("!6s6s", tcp_header)
