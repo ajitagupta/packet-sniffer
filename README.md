@@ -5,15 +5,13 @@ Building a packet sniffer is an opportunity to practice my networking and progra
 So, let's get started!
 
 ## What is packet sniffing?
-The packet sniffer that I will create and walk you through monitors network traffic. Examples of what is contained in these data packets are
+The packet sniffer that I will create and walk you through monitors and analyzes network traffic. A sniffer can continuously monitor all the traffic to a computer through the network interface card by decoding the information encapsulated in the data packets. Examples of what is contained in these data packets are
 - Emails
 - Passwords
 - Browser surfing
 - Chat sessions
 - Router configuration (internet routes)
 - DNS traffic (internet configurations on a computer)
-
-A sniffer can continuously monitor all the traffic to a computer through the network interface card by decoding the information encapsulated in the data packets.
 
 ## How does a packet look like?
 The internet consists of multiple layers which are best described using the famous [OSI Reference Model](https://www.educative.io/blog/osi-model-layers). Each layer of the model is its own protocol used for communication amongst nodes, or networked devices. This is how a data packet is structured at Layer 4: Transmission Control Protocol (TCP).
