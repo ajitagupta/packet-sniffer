@@ -15,7 +15,7 @@ The packet sniffer that I will create and walk you through monitors and analyzes
 - Router configuration (internet routes)
 - DNS traffic (internet configurations on a computer)
 
-## How does a packet look like?
+## How does a data packet look like?
 The internet consists of multiple layers which are best described using the famous [OSI Reference Model](https://www.educative.io/blog/osi-model-layers). Each layer of the model is its own protocol used for communication amongst nodes, or networked devices. This is how a data packet is structured at Layer 4: Transmission Control Protocol (TCP).
 <br>
 ![TCP packet](https://i.ibb.co/CM4SVX4/tcppacket.gif "TCP packet")
