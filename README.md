@@ -48,7 +48,7 @@ MAC stands for Media Access Control address, sometimes referred to as a hardware
 Hacking is violation of the law and results in prosection. Do the investigation on the person affiliated with Destination MAC at destination and inform the person at Source MAC if the former is unidentifiable.
 
 ## Docker
-This program support Docker: dockerfile contains the code to download Docker and configure. docker.sh is a Shell script that opens a Docker container and executes the Python program in it.
+This Python program support's [Docker](https://medium.com/@ajita-gupta/two-fantastic-resources-that-will-get-you-any-job-3f93edbc4c25), i.e. there is a dockerfile that contains the code to download Docker and configure it for our Python script. Then, docker.sh is a shell script that opens a Docker container and executes the Python program in it.
 
 
 
