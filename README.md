@@ -40,12 +40,11 @@ print ("Destination MAC:" + binascii.hexlify(unpacked_tcp_header[0]) + " Source 
 ```
 We still need to print the formatted packet data, and we will make that happen using the struct and binascii imports above. Given that in this tutorial, we are only interested in the source and destination IP addresses, we only care about the first line in the packet (as demonstrated in the diagram). We grab the first line (row size 0, column size 0 to 31) of that header and printing them as follows: Return a pair with two hex values, converted by hexify in the binascii module. The first being the destination, the second the source. MAC stands for Media Access Control address, sometimes referred to as a hardware or physical address, and is a unique, 12-character alphanumeric attribute that is used to identify individual electronic devices on a network.
 
+## Criminology report
+Do the investigation on the guy at destination and inform the person at source if the former is unidentifiable.
 
 ## Docker
 This program support Docker: dockerfile contains the code to download Docker and configure. docker.sh is a Shell script that opens a Docker container and executes the Python program in it.
 
-
-## Criminology report
-Do the investigation on the guy at destination and inform the person at source if the former is unidentifiable.
 
 
