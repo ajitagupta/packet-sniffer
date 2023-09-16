@@ -1,4 +1,4 @@
-# Sniffing in Python - Tutorial
+# Sniffing in Python
 ![Static Badge](https://img.shields.io/badge/Network%20Security-Tutorial-blue)
 
 Coming from a security background (I did a Master's in Computer and Network Security) here is a glimpse of what we used to do in our labs all the time: packet sniffing or wiretapping. Packets contain data that is exchanged between devices connected to the internet. Packet sniffing gives us a feeling of what kind of data is arriving at our end and how we can detect potential security threats and suspicious activities better. 
