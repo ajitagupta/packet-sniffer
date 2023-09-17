@@ -45,7 +45,7 @@ We still need to print the formatted packet data, and we will make that happen u
 MAC stands for Media Access Control address, sometimes referred to as a hardware or physical address, and is a unique, 12-character alphanumeric attribute that is used to identify individual electronic devices (so-called hubs) on a network.
 
 ## Criminology report
-Hacking is violation of the law and results in prosection. In case of a doubt do an investigation on the person affiliated with Destination MAC and inform the person at Source MAC if the former is unidentifiable.
+Hacking is a violation of the law and will result in prosecution. In case of a doubt do an investigation on the person affiliated with Source MAC and inform the person at Destination MAC if the former is unidentifiable.
 
 ## Docker
 This Python program support's [Docker](https://medium.com/@ajita-gupta/two-fantastic-resources-that-will-get-you-any-job-3f93edbc4c25), i.e. there is a dockerfile that contains the code to download Docker and configure it for our Python script. Then, docker.sh is a shell script that opens a Docker container and executes the Python program in it.
