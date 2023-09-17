@@ -28,19 +28,22 @@ import socket
 import struct
 import binascii
 ```
-### 2. Now we tap
+### 2. Now we tap the socket
 ```
 s = socket.socket(socket.AF_INET, socket.SOCK_RAW, socket.htons(0x0800)) #Creating socket
 packet = s.recvfrom(46)
 ```
 We first open a socket or *tap* and grab 46 bits in length. In the socket function, we will need to pass three variables: the first specifying a windows packet interface (AF_INET); the second specifying that we are opening a raw socket, and the third specifying the protocol we are interested in, which is the IPv4 protocol in this case. We will then rely on the recvfrom function to receive a packet (of size 46).
+
+Just accept this for now.
+
 ### 3. We finally output the hacker
 ```
 tcp_header = packet[0][0:31] # Get first line of the packet
 unpacked_tcp_header = struct.unpack("!6s6s", tcp_header)
 print ("Destination MAC:" + binascii.hexlify(unpacked_tcp_header[0]) + " Source MAC:" + binascii.hexlify(unpacked_tcp_header[1])))
 ```
-We still need to print the formatted packet data, and we will make that happen using the struct and binascii imports above. Given that in this tutorial, we are only interested in the source and destination IP addresses, we only care about the first line in the packet (as demonstrated in the diagram). We grab the first line (row size 0, column size 0 to 31) of the data packet and print as follows: Return a pair with two hex values, converted by hexify in the binascii module. The first being the destination, the second the source.
+In a hacking attempt we must identify where the data is coming from and where it is heading. Thus, we need to print the formatted packet data. This is done using the struct and binascii imports above. We only care about the first line in the packet (as demonstrated in the diagram). We grab the first line (row size 0, column size 0 to 31) of the data packet and print as follows: Return a pair with two hex values, converted by hexify in the binascii module. The first being the destination, the second the source.
 <br><br>
 MAC stands for Media Access Control address, sometimes referred to as a hardware or physical address, and is a unique, 12-character alphanumeric attribute that is used to identify individual electronic devices (so-called hubs) on a network.
 
